@@ -1,0 +1,52 @@
+excellent = 0
+good = 0
+improvement = 0
+total = 0
+
+attendance_list = []
+
+for i in range(1, 11):
+
+    attendance = int(input(f"Employee {i} Attendance: "))
+
+    if attendance == -1:
+        break
+
+    if attendance == 0:
+        continue
+
+    if attendance > 100:
+        pass
+
+    attendance_list.append(attendance)
+
+    total += 1
+
+    if attendance >= 90:
+        print(f"Employee {i}: Excellent")
+        excellent += 1
+
+    elif attendance >= 75:
+        print(f"Employee {i}: Good")
+        good += 1
+
+    else:
+        print(f"Employee {i}: Improvement Required")
+        improvement += 1
+
+print("\nAttendance Summary")
+print("Total Employees Processed:", total)
+print("Excellent:", excellent)
+print("Good:", good)
+print("Improvement Required:", improvement)
+
+print("\nBonus Task")
+
+if total > 0:
+    print("Highest Attendance Percentage:", max(attendance_list))
+    print("Lowest Attendance Percentage:", min(attendance_list))
+    print("Average Attendance Percentage:", round(sum(attendance_list) / total, 2))
+
+    print("Percentage of Excellent Employees:", round((excellent / total) * 100, 2), "%")
+    print("Percentage of Good Employees:", round((good / total) * 100, 2), "%")
+    print("Percentage of Improvement Required Employees:", round((improvement / total) * 100, 2), "%")
